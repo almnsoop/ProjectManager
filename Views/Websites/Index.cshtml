@@ -1,0 +1,62 @@
+@model IEnumerable<ProjectManager.Models.Website>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="table-responsive shadow-sm rounded bg-white p-3 mt-4">
+    <table class="table table-hover table-borderless align-middle">
+        <thead class="table-light text-secondary">
+            ```
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DomainName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsHostingReady)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deadline)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.DomainName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.IsHostingReady)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Deadline)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Client.Name)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">تعديل</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">تفاصيل</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">حذف</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
