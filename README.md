@@ -23,5 +23,5 @@
 
 ```powershell
 Update-Database
-
+```
 4. اضغط على F5 أو زر Play الأخضر لتشغيل النظام في المتصفح
